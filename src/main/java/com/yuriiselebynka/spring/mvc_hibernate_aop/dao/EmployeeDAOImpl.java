@@ -4,6 +4,7 @@ import com.yuriiselebynka.spring.mvc_hibernate_aop.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,6 +16,7 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 
     @Autowired
     private SessionFactory sessionFactory;
+
     @Override
     @Transactional
     public List<Employee> getAllEmployees() {
@@ -26,6 +28,6 @@ public class EmployeeDAOImpl implements EmployeeDAO{
                 , Employee.class);
         List<Employee> allEmployees = query.getResultList();
 
-        return null;
+        return allEmployees;
     }
 }
